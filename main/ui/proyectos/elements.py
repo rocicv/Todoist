@@ -39,13 +39,12 @@ class ProyectosPageElements:
     def get_menu_plantilla(self):
         return self.page.locator(self.selectors.EXPLORAR_PLANTILLAS)
     
-    def get_nombre_categoria(self):
-        return self.page.locator("#\\/app\\/templates\\/category\\/personal")
-    
     def get_plantilla(self):
         return self.page.locator(self.selectors.PLANTILLA)
+    
     def get_titulo_plantilla(self):
         return self.page.locator(self.selectors.TITULO_PLANTILLA)
+    
     def get_copiar_plantilla(self):
         return self.page.locator(self.selectors.COPIAR_PLANTILLA)
     

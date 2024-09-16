@@ -10,8 +10,7 @@ class ProyectosPageSelectors:
     SUBMIT_BUTTON = 'button[type="submit"]'
     CONTENEDOR_PROYECTO = '[data-testid="task-selection-list-container"]'
     EXPLORAR_PLANTILLAS = 'a[aria-label="Explorar plantillas"]'
-    # NOMBRE_CATEGORIA = 'r"#\\/app\\/templates\\/category\\/personal"'
-    PLANTILLA = '[data-template-name="Seguimiento de objetivos"]'
+    PLANTILLA = 'a[data-template-name="Revisión semanal"]'
     TITULO_PLANTILLA = 'section > div > div > h1'
-    COPIAR_PLANTILLA = 'button[data-template-name="Seguimiento de objetivos"]'
+    COPIAR_PLANTILLA = 'button[data-template-name="Revisión semanal"]'
     

@@ -1,14 +1,22 @@
 # Todoist
-1. crear entorno virtual y activar
+1. Clonar repositorio
+2. crear entorno virtual y activar
 python -m venv venv
 venv\Scripts\activate
 
-2. instalar playright
+3. instalar playright
 pip install pytest playwright
 playwright install
 
-3. instalar librerias dotenv
+4. instalar librerias dotenv
 pip install python-dotenv
 
-4. Añadir dependencias
+5. Añadir dependencias
 pip freeze > requirements.txt
+
+6. Agregar archivos te prueba
+
+test/test_ejemplo.py
+main/ui/carpeta/selectors.py
+main/ui/carpeta/elements.py
+main/ui/carpeta/page.py

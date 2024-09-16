@@ -17,10 +17,6 @@ def test_login_con_credenciales_validas():
     
     # Usar el Page Object para interactuar con la página de login
     login_page = LoginPage(driver.page)
-    
-    # 2. Ingresar las credenciales
-    # email = "01joilefille@gmail.com"
-    # password = "Roci.TT01"
  
     login_page.ingresar_valores(TODOIST_EMAIL, TODOIST_PASSWORD)
     
