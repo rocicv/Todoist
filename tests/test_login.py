@@ -5,8 +5,6 @@ from main.ui.login.login_page import LoginPage
 from dotenv import load_dotenv
 import os
 
-# Instancia de WebDriver
-driver = WebDriver()
 
 load_dotenv()
 # Recuperar las variables de entorno
