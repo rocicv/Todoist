@@ -40,7 +40,6 @@ class TaskPage:
         # Tomar una captura de pantalla del mensaje
         self.page.screenshot(path='alerta_aparece.png')
         self.page.goto("https://app.todoist.com/app/inbox")
-        logger.info("bandeja de entrada")
 
 
     def agregar_tarea_bandeja(self, nombre:str, desc:str):
@@ -86,4 +85,5 @@ class TaskPage:
         self.agregar_a()
         self.elements.get_submit_button().click()
         self.verificar_msj()
+        logger.info("tarea añadida a proyecto")
         
