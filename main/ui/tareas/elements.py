@@ -21,7 +21,6 @@ class TareasPageElements:
         
     def get_clic_fuera(self):
         return self.page.locator(self.selectors.POPPER_OVERLAY)
-        
     
     def get_add_menu_prioridad(self):
         return self.page.locator(self.selectors.PRIORIDAD_BUTTON)
@@ -37,3 +36,15 @@ class TareasPageElements:
 
     def get_badeja_button(self):
         return self.page.locator(self.selectors.BANDEJA_ENTRADA_BUTTON)
+    
+    def get_abrir_fvenc_button(self):
+        return self.page.locator(self.selectors.DATE_BUTTON)
+    def get_selec_fvenc_button(self):
+        return self.page.locator(self.selectors.DATE)
+    
+    def get_selec_a_button(self):
+        return self.page.locator(self.selectors.SELECT_A_BUTTON)
+    def get_menu_proyectos(self):
+        return self.page.locator(self.selectors.MENU_PROYECTOS)
+    def get_select_proyecto(self):
+        return self.page.locator(self.selectors.PROYECTO)
