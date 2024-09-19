@@ -4,6 +4,6 @@
 env
 #cache
 */__pycache__/*
-main/*/login/__pycache__/*
+main/*/*/__pycache__/*
 main/ui/login/__init__.py
 */__init__.py
