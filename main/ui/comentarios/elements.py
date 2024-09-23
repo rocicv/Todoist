@@ -41,3 +41,4 @@ class CommentPageElements:
         return self.page.locator(self.selectors.MENSAJE_ALERTA)
     def get_aceptar_eliminar(self):
         return self.page.locator(self.selectors.ACEPTAR_BUTTON)
+    

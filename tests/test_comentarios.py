@@ -41,13 +41,16 @@ def test_añadir_un_comentario_tarea(setup_browser):
     task_page = TaskPage(driver.page)
     # task_page.agregar_tarea_bandeja(nombre, desc)
     coment_page.agregar_coment_a_tarea(comentario)
-    coment_page.eliminar_comentario()
 
 def test_eliminar_comentario_de_tarea(setup_browser):
     driver = setup_browser
     coment_page = CommentPage(driver.page)
     coment_page.eliminar_comentario()
 
+# C-004: Modificar un comentario
+
+
+# C-005: Reaccionar a un comentario
 
 
 

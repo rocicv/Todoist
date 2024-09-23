@@ -36,14 +36,12 @@ class CommentPage:
         self.elements.get_submit_button().click()
         logger.info("comentario realizado")
         self.elements.get_cerrar_tarea().click()
-        # self.elements.get_ver_comentarios()
+        self.eliminar_comentario()
     
 
     def eliminar_comentario(self):
-        # self.page.goto("https://app.todoist.com/app/inbox")
         logger.info("abrir tarea")
         self.elements.get_abrir_tarea().click()
-        # self.elements.get_abrir_tarea_inbox().click()
         self.elements.get_select_comentario()
         logger.info("abrir comentario")
         self.page.wait_for_timeout(1000) 
@@ -54,3 +52,5 @@ class CommentPage:
         self.page.screenshot(path='alerta_eliminar_comentario.png')
         self.elements.get_aceptar_eliminar().click()
         logger.info("comentario eliminado")
+
+
