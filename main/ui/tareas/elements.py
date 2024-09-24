@@ -48,3 +48,31 @@ class TareasPageElements:
         return self.page.locator(self.selectors.MENU_PROYECTOS)
     def get_select_proyecto(self):
         return self.page.locator(self.selectors.PROYECTO)
+    
+    def get_select_proyecto_1(self):
+        return self.page.locator(self.selectors.PROYECTO_L1)
+    def get_add_task_project(self):
+        return self.page.locator(self.selectors.ADD_BUTTON_PROYECT)
+    
+    def get_add_task_section(self):
+        return self.page.locator(self.selectors.ADD_BUTTON_SECTION)
+    def get_abrir_menu_tarea(self):
+        return self.page.locator(self.selectors.MENU_TAREA)
+    def get_mover_tarea(self):
+        return self.page.locator(self.selectors.MOVER_TAREA_BUTTON)
+    def get_selec_seccion_proy(self):
+        return self.page.locator(self.selectors.SECCION_PENDIENTE_PROY)
+    def get_msj_alerta_mover_tarea(self):
+        return self.page.locator(self.selectors.MENSAJE_ALERT_MOVER_TAREA)
+    def get_cancelar_agregar_tarea(self):
+        return self.page.locator(self.selectors.CANCELAR_BUTTON)
+    def get_editar_tarea(self):
+        return self.page.locator(self.selectors.EDITAR_TAREA_BUTTON)
+    def get_selec_nueva_fecha(self):
+        return self.page.locator(self.selectors.DATE_PROXIMA_SEMANA)
+    def get_eliminar_tarea(self):
+        return self.page.locator(self.selectors.ELIMINAR_TAREA_BUTTON)
+    def get_msj_alerta_eliminar_tarea(self):
+        return self.page.locator(self.selectors.MENSAJE_ALERT_ELIMINAR_TAREA)
+    def get_eliminar_tarea_button(self):
+        return self.page.locator(self.selectors.BUTON_ELIMINAR)
