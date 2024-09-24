@@ -47,4 +47,48 @@ class ProyectosPageElements:
     
     def get_copiar_plantilla(self):
         return self.page.locator(self.selectors.COPIAR_PLANTILLA)
+
+    def get_agregar_a_favoritos(self):
+        return self.page.locator(self.selectors.ADD_FAVORITOS)
     
+    def get_ver_proy_favoritos(self):
+        return self.page.locator(self.selectors.PROYECTOS_FAVORITOS)
+    
+    def get_ver_lista_proyectos(self):
+        return self.page.locator(self.selectors.LISTA_PROYECTOS)
+    
+    def get_ver_proyecto_con_nombre(self):
+        return self.page.locator(self.selectors.NOMBRE_PROYECTO)
+    
+    def get_select_proyecto(self):
+        return self.page.locator(self.selectors.PROYECTO)
+    
+    def get_proyecto_menu(self):
+        return self.page.locator(self.selectors.PROYECTO_MENU_BUTTON)
+   
+    def get_editar_button(self):
+        return self.page.locator(self.selectors.EDITAR_BUTTON)
+    
+    def get_titulo_form_editar(self):
+        return self.page.locator(self.selectors.TITULO_FORM_EDITAR)
+    
+    def get_color_nuevo(self):
+        return self.page.locator(self.selectors.COLOR_NUEVO)
+    
+    def get_selec_vista(self):
+        return self.page.locator(self.selectors.PANEL)
+
+    def get_archivar_button(self):
+        return self.page.locator(self.selectors.ARCHIVAR_BUTTON)
+    
+    def get_titulo_msj_archivar_proy(self):
+        return self.page.locator(self.selectors.TITULO_VENTANA_ARCHIVAR)
+    
+    def get_confirmar(self):
+        return self.page.locator(self.selectors.MSJ_CONFIRMACION_BUTTON)
+    
+    def get_eliminar_button(self):
+        return self.page.locator(self.selectors.ELIMINAR_BUTTON)
+    
+    def get_titulo_msj_eliminar_proy(self):
+        return self.page.locator(self.selectors.TITULO_VENTANA_ELIMINAR)

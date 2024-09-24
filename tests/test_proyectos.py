@@ -33,3 +33,41 @@ def test_agregar_proyecto_por_plantilla(setup_browser):
     proyect_page = ProyectPage(driver.page)
     proyect_page.agregar_proyecto_plantilla()
 
+# P-003: registro duplicado de proyectos
+def test_agregar_proyecto_duplicado(setup_browser):
+    driver = setup_browser
+    # Usar el Page Object para interactuar con la página de proyecto
+    proyect_page = ProyectPage(driver.page)
+    titulo = "proyecto de prueba"
+    proyect_page.agregar_proyecto(titulo)
+    proyect_page.ver_contar_proyectos(titulo)
+
+def test_agregar_p_simple_a_favoritos(setup_browser):
+    driver = setup_browser
+    # Usar el Page Object para interactuar con la página de proyecto
+    proyect_page = ProyectPage(driver.page)
+    titulo = "proyecto de prueba"
+    proyect_page.añadir_a_favorito(titulo)
+
+# P-005: Actualizar información de proyecto simple
+def test_actualizar_info_proyecto(setup_browser):
+    driver = setup_browser
+    # Usar el Page Object para interactuar con la página de proyecto
+    proyect_page = ProyectPage(driver.page)
+    proyect_page.actualizar_info()
+
+# P-007: Compartir proyecto por correo
+# def test_compartir_proyecto(setup_browser):
+   
+# P-008: Archivar un proyecto 
+def test_archivar_proyecto(setup_browser):
+    driver = setup_browser
+    # Usar el Page Object para interactuar con la página de proyecto
+    proyect_page = ProyectPage(driver.page)
+    proyect_page.archivar()
+# P-009: Eliminar un proyecto
+def test_eliminar_proyecto(setup_browser):
+    driver = setup_browser
+    # Usar el Page Object para interactuar con la página de proyecto
+    proyect_page = ProyectPage(driver.page)
+    proyect_page.eliminar()
