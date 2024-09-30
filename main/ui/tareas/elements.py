@@ -27,7 +27,7 @@ class TareasPageElements:
     def get_selec_prioridad(self):
         return self.page.locator(self.selectors.PRIORIDAD)
     def get_ver_proyecto(self):
-        return self.page.locator(self.selectors.PROYECTO)
+        return self.page.locator(self.selectors.ANADIR_A_BUTTON)
     def get_submit_button(self):
         return self.page.locator(self.selectors.SUBMIT_BUTTON)
     
@@ -50,7 +50,7 @@ class TareasPageElements:
         return self.page.locator(self.selectors.PROYECTO)
     
     def get_select_proyecto_1(self):
-        return self.page.locator(self.selectors.PROYECTO_L1)
+        return self.page.locator(self.selectors.LISTA_PROYECTOS)
     def get_add_task_project(self):
         return self.page.locator(self.selectors.ADD_BUTTON_PROYECT)
     
@@ -66,6 +66,7 @@ class TareasPageElements:
         return self.page.locator(self.selectors.MENSAJE_ALERT_MOVER_TAREA)
     def get_cancelar_agregar_tarea(self):
         return self.page.locator(self.selectors.CANCELAR_BUTTON)
+    
     def get_editar_tarea(self):
         return self.page.locator(self.selectors.EDITAR_TAREA_BUTTON)
     def get_selec_nueva_fecha(self):
@@ -76,3 +77,16 @@ class TareasPageElements:
         return self.page.locator(self.selectors.MENSAJE_ALERT_ELIMINAR_TAREA)
     def get_eliminar_tarea_button(self):
         return self.page.locator(self.selectors.BUTON_ELIMINAR)
+    
+    def get_select_tarea(self):
+        return self.page.locator(self.selectors.TAREA)
+    def get_nombre_tarea_n1(self):
+        return self.page.locator(self.selectors.NOMBRE_TAREA_N1)
+    def get_add_subtarea(self):
+        return self.page.locator(self.selectors.ADD_SUBTAREA)
+    def get_cerrar_tarea(self):
+        return self.page.locator(self.selectors.CERRAR_TAREA_BUTTON)
+    def get_select_subtarea(self):
+        return self.page.locator(self.selectors.SELECT_SUBTAREA)
+    def get_retroceder_nivel_subtarea(self):
+        return self.page.locator(self.selectors.SUBTAREA_BREARCUMB)

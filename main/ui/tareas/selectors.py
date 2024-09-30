@@ -13,17 +13,17 @@ class TareasPageSelectors:
     DATE_BUTTON= 'div[aria-label="Establecer fecha de vencimiento"]'
     DATE='button[data-action-hint="scheduler-suggestion-tomorrow"]'
 
-    PROYECTO ='button[aria-label="Selecciona un proyecto"]>span>div>span'
+    ANADIR_A_BUTTON ='button[aria-label="Selecciona un proyecto"]>span>div>span'
     SUBMIT_BUTTON = '[data-testid="task-editor-submit-button"]'
     BANDEJA_ENTRADA_BUTTON = 'a[href="/app/inbox"]'
     MENSAJE_ALERT = '[data-testid="toasts-container"]'
 
     SELECT_A_BUTTON= 'button[aria-label="Selecciona un proyecto"]'
     MENU_PROYECTOS = 'ul[aria-label="Selecciona un proyecto"]'
-    PROYECTO = 'ul[aria-label="Selecciona un proyecto"]>li:nth-of-type(1)' #Proyecto mis cosas
+    PROYECTO = 'ul[aria-label="Selecciona un proyecto"]>li:nth-of-type(5)' #Proyecto mis cosas, sin seccion
 
-    PROYECTO_L1= '#projects_list > div > div > div > div > div:nth-of-type(1)' #primer proyecto de la lista
-    ADD_BUTTON_PROYECT='.section_list > li > section > div > ul > li > button'
+    LISTA_PROYECTOS= '#projects_list > div > div > div > div > div:nth-of-type(1)' #primer proyecto de la lista
+    ADD_BUTTON_PROYECT='.section_list > li:nth-of-type(1) > section > div > ul > li > button'#boton añadir tarea, sin seccion
 
 
     ADD_BUTTON_SECTION='section[aria-label="Pendiente"]  .list_holder button' #boton añadir tarea de seccion pendiente
@@ -39,3 +39,12 @@ class TareasPageSelectors:
     ELIMINAR_TAREA_BUTTON='[data-action-hint="task-overflow-menu-delete"]'
     MENSAJE_ALERT_ELIMINAR_TAREA='text=¿Eliminar la tarea?'
     BUTON_ELIMINAR='footer > div > button:nth-of-type(2)'
+
+    TAREA='li.task_list_item>div' #seleccionar tarea de today
+    ADD_SUBTAREA='text=Añadir subtarea'
+    CERRAR_TAREA_BUTTON='button[aria-label="Cerrar tarea"]'
+
+    NOMBRE_TAREA_N1='form > div.task_editor__editing_area > div> div  div[aria-label="Nombre de la tarea"]'
+    SELECT_SUBTAREA='li.task_list_item.task_list_item--project_hidden > div'
+    SUBTAREA_BREARCUMB='div[data-testid="task-detail-breadcrumbs"]>a'
+    
