@@ -25,7 +25,7 @@ class ProyectosPageSelectors:
     PANEL = 'label[for="BOARD"]'
     ARCHIVAR_BUTTON='.reactist_menulist > div:nth-of-type(11)'
     TITULO_VENTANA_ARCHIVAR='text=¿Archivar el proyecto?'
-    MSJ_CONFIRMACION_BUTTON = 'footer > div > button:nth-of-type(2)'
+    MSJ_CONFIRMACION_BUTTON = '.focus-marker-enabled-within button:nth-of-type(2)'
     ELIMINAR_BUTTON= '.reactist_menulist > div:nth-of-type(12)'
     TITULO_VENTANA_ELIMINAR='text=¿Eliminar el proyecto?'
     AGREGAR_PLANTILLA_BUTTON='.reactist_menulist > a:nth-of-type(1)'

@@ -14,9 +14,13 @@ pip install python-dotenv
 5. Añadir dependencias
 pip freeze > requirements.txt
 
-6. Agregar archivos te prueba
+6. Agregar archivos de prueba
 
 test/test_ejemplo.py
-main/ui/carpeta/selectors.py
-main/ui/carpeta/elements.py
-main/ui/carpeta/page.py
+main/ui/modulo/selectors.py
+main/ui/modulo/elements.py
+main/ui/modulo/page.py
+main/ui/modulo/variables.py
+
+7. Instalar librerias de reportes 
+$ pip install pytest-html
