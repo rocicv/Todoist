@@ -8,13 +8,19 @@ class ComentariosPageSelectors:
     ABRIR_TAREA = '.task_list_item >div.task_list_item__body' #seleccionar tarea de today
     ABRIR_CAMPO_COMENTARIO= 'button[data-testid="open-comment-editor-button"]'
     CERRAR_TAREA= '[aria-label="Cerrar tarea"]'
-    # VER_TAREA = '[data-testid="task-card"]'
-    # ABRIR_TAREA_INBOX= 'button[aria-label="Abrir detalles de tarea"]'
-    SELECT_COMENTARIO = '.note_text has_avatar'
+    CANCELAR_BUTTON='button[aria-label="Cerrar editor de comentarios"]'
+    SELECT_COMENTARIO = '.note_text.has_avatar'
     MENU_COMENTARIO = 'button[aria-label="Opciones del comentario"]'
     ELIMINAR_COMENTARIO_BUTTON = 'div[data-destructive="true"]'
     MENSAJE_ALERTA = 'Este comentario se eliminará permanentemente.'
     ACEPTAR_BUTTON = 'footer > div > button._7ea1378e'
-
-
-
+    EDITAR_BUTTON='[aria-label="Opciones del comentario"] div:nth-of-type(1)'
+    ACTUALIZAR_BUTTON='button[data-track="comments|update_comment"]'
+    CAMPO_COMENTARIO_ACTUALIZAR='div[aria-label="Comentar"]'
+    SUBTAREA='.task_list_item.task_list_item--project_hidden'
+    ICONO_COMENTAR_BUTTON='.task_list_item.task_list_item--project_hidden  button[aria-label="Comentar"]'
+    AGREGAR_REACCION='.emojiPickerWrapper button[aria-label="Añade una reacción"]'
+    EMOJIS_RECIENTES='div[data-testid="Usadas recientemente"]'
+    EMOJI_VERIFICACION='div[title="botón de marca de verificación"]'
+    REACCIONES_LIST='.comments_actions_line.reactions_line .reaction'
+    MENU_EMOJIS='div[aria-label="Selector de emoji"]'
