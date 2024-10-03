@@ -22,14 +22,15 @@ class TareasPageSelectors:
     MENU_TAREA='button[aria-label="Más acciones"]'
     MENU_SUB_TAREA='#task-detail-subtasks-panel button[data-testid="more_menu"]'
     MOVER_TAREA_BUTTON='[aria-label="menú editar tarea"] > div:nth-of-type(7)'
-    SECCION_PENDIENTE_PROY='li[aria-label="Sección: En proceso (Proyecto: Mis cosas)"]'
+    SECCION_PROCESO_PROY='li.dropdown_select__option--highlighted +li +li >div> div:nth-of-type(2)'
+    SECCION_PROCESO_INBOX='li.dropdown_select__option--highlighted + li + li'
     MENSAJE_ALERT_MOVER_TAREA ="text=Cambiaste el orden"
     CANCELAR_BUTTON='button[aria-label="Cancelar"]'
     EDITAR_TAREA_BUTTON='[aria-label="menú editar tarea"] > div:nth-of-type(3)'
     DATE_PROXIMA_SEMANA ='button[data-action-hint="scheduler-suggestion-nextWeek"]'
     ELIMINAR_TAREA_BUTTON='[data-action-hint="task-overflow-menu-delete"]'
     MENSAJE_ALERT_ELIMINAR_TAREA='text=¿Eliminar la tarea?'
-    BUTON_ELIMINAR='footer > div > button:nth-of-type(2)'
+    BUTON_ELIMINAR='.focus-marker-enabled-within button:nth-of-type(2)'
     TAREA='li.task_list_item>div' #seleccionar tarea de today
     ADD_SUBTAREA='text=Añadir subtarea'
     CERRAR_TAREA_BUTTON='button[aria-label="Cerrar tarea"]'

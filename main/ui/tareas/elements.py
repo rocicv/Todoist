@@ -76,7 +76,10 @@ class TareasPageElements:
         return self.page.locator(self.selectors.MOVER_TAREA_BUTTON)
     
     def get_selec_seccion_proy(self):
-        return self.page.locator(self.selectors.SECCION_PENDIENTE_PROY)
+        return self.page.locator(self.selectors.SECCION_PROCESO_PROY)
+    
+    def get_selec_seccion_inbox(self):
+        return self.page.locator(self.selectors.SECCION_PROCESO_INBOX)
     
     def get_msj_alerta_mover_tarea(self):
         return self.page.locator(self.selectors.MENSAJE_ALERT_MOVER_TAREA)
@@ -116,3 +119,10 @@ class TareasPageElements:
     
     def get_retroceder_nivel_subtarea(self):
         return self.page.locator(self.selectors.SUBTAREA_BREARCUMB)
+    
+    def get_menu_agregar_seccion(self):
+        return self.page.locator(self.selectors.MENU_AGREGAR_SECCION)
+    def get_campo_seccion(self):
+        return self.page.locator(self.selectors.CAMPO_INPUT_SECCION)
+    def get_agregar_seccion_submit(self):
+        return self.page.locator(self.selectors.AGREGAR_SECCION_BUTTON_SUBMIT)

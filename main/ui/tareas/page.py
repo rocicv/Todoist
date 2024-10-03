@@ -70,6 +70,7 @@ class TaskPage:
        
         
     def agregar_tarea_en_proyecto(self, nombre:str, desc:str):
+        self.page.goto("https://app.todoist.com/app/today")
         self.elements.get_add_tarea_button().click()
         logger.info("abrir form agregar tarea, introducir datos")
         self.agregar_tarea(nombre, desc)
@@ -101,17 +102,17 @@ class TaskPage:
         self.agregar_tarea(nombre, desc)
         self.agregar_fecha()
         self.elements.get_submit_button().click()
-        logger.info("tarea añadida a seccion")
-        logger.info("abrir menu tarea y mover tarea")
+        logger.info("tarea añadida a seccion")       
         self.elements.get_cancelar_agregar_tarea().click()
         self.page.hover("li.task_list_item")
+        logger.info("abrir menu tarea y mover")
         self.elements.get_abrir_menu_tarea().click()
         self.elements.get_mover_tarea().click()
+        logger.info("elegir seccion")
         self.elements.get_selec_seccion_proy().click()
-        self.elements.get_msj_alerta_mover_tarea()
-        self.page.screenshot(path='mover_tarea.png')
-        self.page.wait_for_timeout(1000)
-        logger.info("la tarea se movio de seccion: pendiente a en proceso")
+        self.elements.get_msj_alerta_mover_tarea() #captura imagen
+        self.page.screenshot(path='utils/img/mover_tarea.png')
+        logger.info("la tarea se movio a seccion En proceso")
         
     
     def actualizar_info(self, nombre, desc):
@@ -235,14 +236,19 @@ class TaskPage:
         logger.info("mover subtarea nivel 2 a seccion En proceso")
         self.elements.get_select_tarea().click()
         self.page.hover("li.task_list_item.task_list_item--project_hidden")
-        logger.info('p aqui')
         self.elements.get_abrir_menu_sub_tarea().click()
         self.elements.get_mover_tarea().click()
-        self.elements.get_selec_seccion_proy().click()
+        self.elements.get_selec_seccion_inbox().click()
         self.elements.get_msj_alerta_mover_tarea()
         self.page.screenshot(path='utils/img/mover_subtarea.png')
         self.page.wait_for_timeout(1000)
         logger.info("la subtarea se movio a seccion como tarea")
         self.elements.get_cerrar_tarea().click()
         self.eliminar()
-        self.elements.get_select_proyecto_1().click()
+        # self.elements.get_select_proyecto_1().click()
+        self.page.goto('https://app.todoist.com/app/inbox')
+        self.page.wait_for_timeout(500)
+        self.page.screenshot(path='utils/img/subtarea_se_movio_sec.png')
+        # self.eliminar()
+    
+    

@@ -1,7 +1,7 @@
 import random
 import string
 
-class GeneradorDatos:
+class GeneradorDatosTareas:
     def generar_nombre_tarea(self):
         texto = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
         nombre = f"{texto}"
