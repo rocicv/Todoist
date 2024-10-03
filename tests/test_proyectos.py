@@ -43,7 +43,6 @@ def test_agregar_proyecto_por_plantilla(setup_browser):
     proyect_page.agregar_proyecto_plantilla()
     proyect_page.eliminar()
 
-@pytest.mark.webtest
 # P-003: Agregar secciones en un proyecto 
 def test_agregar_secciones_en_proyecto(setup_browser):
     driver = setup_browser
@@ -64,7 +63,7 @@ def test_agregar_proyecto_como_plantilla(setup_browser):
     proyect_page.crear_platilla(desc_plantilla)
     proyect_page.eliminar()
 
-
+@pytest.mark.webtest
 # P-005: Agregar proyecto simple a favoritos
 def test_agregar_p_simple_a_favoritos(setup_browser):
     driver = setup_browser
