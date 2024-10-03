@@ -14,6 +14,8 @@ class WebDriver:
         self.playwright = sync_playwright().start()
         self.browser = self.playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
+        # Establecer el tamaño de la ventana aquí
+        self.page.set_viewport_size({"width": 1300, "height": 620})
         self.page.goto(url)
 
     def close_browser(self):
