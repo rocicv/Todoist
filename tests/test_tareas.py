@@ -2,6 +2,7 @@ import pytest
 from core.webdriver import WebDriver
 from main.ui.login.login_page import LoginPage
 from main.ui.tareas.page import TaskPage
+from main.ui.tareas.variables import GeneradorDatos
 from dotenv import load_dotenv
 import os
 
@@ -10,8 +11,9 @@ load_dotenv()
 TODOIST_EMAIL = os.getenv("TODOIST_EMAIL")
 TODOIST_PASSWORD = os.getenv("TODOIST_PASSWORD")
 #variables globales
-nombre= "tarea de prueba"
-desc = "descripción de tarea"
+generador = GeneradorDatos()
+nombre = generador.generar_nombre_tarea()
+desc = generador.generar_descripcion_tarea()
 
 @pytest.fixture
 def setup_browser():
