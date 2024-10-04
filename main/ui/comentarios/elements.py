@@ -86,3 +86,12 @@ class CommentPageElements:
     
     def get_comentar_subtarea(self):
         return self.page.locator(self.selectors.ICONO_COMENTAR_BUTTON)
+    
+    def get_campo_notificar(self):
+        return self.page.locator(self.selectors.CAMPO_NOTIFICAR)
+    
+    def get_selec_correo_notificacion(self):
+        return self.page.locator(self.selectors.SELECT_CORREO_NOTIFICACION)
+    
+    def get_cerrar_ventana(self):
+        return self.page.locator(self.selectors.CERRAR_VENTANA)
