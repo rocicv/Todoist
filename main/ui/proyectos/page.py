@@ -145,6 +145,7 @@ class ProyectPage:
         logger.info("eliminar proyecto")
         self.elements.get_proyecto_menu().is_visible()
         self.elements.get_proyecto_menu().click()
+        self.page.wait_for_timeout(500)
         self.elements.get_eliminar_button().click()
         self.elements.get_titulo_msj_eliminar_proy()
         self.page.screenshot(path='utils/img/eliminar_proyecto.png')
@@ -166,10 +167,12 @@ class ProyectPage:
     def exportar(self):
         logger.info("exportar proyecto cvs")
         self.elements.get_proyecto_menu().click()
+        logger.info("exportar")
         self.elements.get_clic_menu_proyecto_exportar().click()
-        self.elements.get_clic_submenu().click()
-        self.elements.get_titulo_mjs_exportar().is_visible()
+        logger.info("captura")
+        self.elements.get_titulo_mjs_exportar()
         self.page.screenshot(path='utils/img/proyecto_exportado.png')
+        logger.info("captura, confirmar exportar")
         self.elements.get_clic_boton_exportar().click()
         logger.info("proyecto exporto")
         

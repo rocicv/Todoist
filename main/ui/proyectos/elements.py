@@ -150,11 +150,8 @@ class ProyectosPageElements:
     def get_clic_menu_proyecto_exportar(self):
         return self.page.locator(self.selectors.EXPORTAR_MENU)
     
-    def get_clic_submenu(self):
-        return self.page.locator(self.selectors.EXPORTAR_COMO)
-    
     def get_titulo_mjs_exportar(self):
-        return self.page.locator(self.selectors.EXPORTAR_COMO)
+        return self.page.locator(self.selectors.TITULO_MSJ_EXPORTAR_COMO)
     
     def get_clic_boton_exportar(self):
         return self.page.locator(self.selectors.EXPORTAR_BUTTON)
