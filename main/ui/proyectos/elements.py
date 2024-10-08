@@ -18,7 +18,7 @@ class ProyectosPageElements:
     def get_titulo_form(self):
         return self.page.locator(self.selectors.TITULO_FORMULARIO)
     
-    def get_name_input(self):
+    def get_campo_nombre_titulo(self):
         return self.page.locator(self.selectors.CAMPO_NOMBRE)
     
     def get_select_color(self):
