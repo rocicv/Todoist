@@ -15,13 +15,15 @@ class TareasPageSelectors:
     MENSAJE_ALERT = '[data-testid="toasts-container"]'
     SELECT_A_BUTTON= 'button[aria-label="Selecciona un proyecto"]'
     MENU_PROYECTOS = 'ul[aria-label="Selecciona un proyecto"]'
-    PROYECTO = 'ul[aria-label="Selecciona un proyecto"]>li:nth-of-type(5)' #Proyecto mis cosas, sin seccion
+    PROYECTO = '.dropdown_select--popup ul li[role="separator"] + li' #Proyecto mis cosas, sin seccion
     LISTA_PROYECTOS= '#projects_list > div > div > div > div > div:nth-of-type(1)' #primer proyecto de la lista
     ADD_BUTTON_PROYECT='.section_list > li:nth-of-type(1) > section > div > ul > li > button'#boton añadir tarea, sin seccion
     ADD_BUTTON_SECTION='section[aria-label="Pendiente"]  .list_holder button' #boton añadir tarea de seccion pendiente
     MENU_TAREA='button[aria-label="Más acciones"]'
+    MENU_TAREA_DENTRO_SECCION='.task_list_item  button[aria-label="Más acciones"]'
     MENU_SUB_TAREA='#task-detail-subtasks-panel button[data-testid="more_menu"]'
     MOVER_TAREA_BUTTON='[aria-label="menú editar tarea"] > div:nth-of-type(7)'
+    INBOX='li.dropdown_select__option--highlighted'
     SECCION_PROCESO_PROY='li.dropdown_select__option--highlighted +li +li >div> div:nth-of-type(2)'
     SECCION_PROCESO_INBOX='li.dropdown_select__option--highlighted + li + li'
     MENSAJE_ALERT_MOVER_TAREA ="text=Cambiaste el orden"

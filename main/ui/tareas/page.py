@@ -62,7 +62,7 @@ class TaskPage:
         logger.info("abrir form agregar tarea, introducir datos")
         self.agregar_tarea(nombre, desc)
         self.agregar_fecha()
-        self.elements.get_ver_proyecto()
+        # self.elements.get_ver_proyecto()#bandeja de entrada
         self.elements.get_submit_button().click()
         logger.info("se añadio tarea, bandeja de entrada")
         self.verificar_msj()
@@ -106,7 +106,7 @@ class TaskPage:
         self.elements.get_cancelar_agregar_tarea().click()
         self.page.hover("li.task_list_item")
         logger.info("abrir menu tarea y mover")
-        self.elements.get_abrir_menu_tarea().click()
+        self.elements.get_abrir_menu_tarea_seccion().click()
         self.elements.get_mover_tarea().click()
         logger.info("elegir seccion")
         self.elements.get_selec_seccion_proy().click()
@@ -124,7 +124,8 @@ class TaskPage:
         self.verificar_msj()
         logger.info("actualizar la informacion de tarea")
         self.page.goto("https://app.todoist.com/app/inbox")
-        self.page.hover(".board_task")
+        hover_selector = ".board_task"
+        self.page.hover(hover_selector)
         self.elements.get_abrir_menu_tarea().click()
         self.elements.get_editar_tarea().click()
         self.elements.get_abrir_fvenc_button().click()
@@ -132,11 +133,47 @@ class TaskPage:
         self.elements.get_submit_button().click()
         self.page.screenshot(path='utils/img/actualizar_fecha_tarea.png')
         logger.info("tarea actualizada")
-        
 
     def eliminar(self):
+        hover_selector = "li.task_list_item"
+        self.page.hover(hover_selector)
+        self.elements.get_abrir_menu_tarea().is_visible()
+        self.elements.get_abrir_menu_tarea().click()
+        self.elements.get_eliminar_tarea().click()
+        self.elements.get_msj_alerta_eliminar_tarea()
+        self.page.screenshot(path='utils/img/eliminar_tarea.png')
+        self.elements.get_eliminar_tarea_button().click()
+        self.page.wait_for_timeout(500)
+        logger.info("Tarea eliminada")
+
+    def eliminar_inbox(self):
+        hover_selector = ".board_task"
+        self.page.hover(hover_selector)
+        self.elements.get_abrir_menu_tarea().is_visible()
+        self.elements.get_abrir_menu_tarea().click()
+        self.elements.get_eliminar_tarea().click()
+        self.elements.get_msj_alerta_eliminar_tarea()
+        self.page.screenshot(path='utils/img/eliminar_tarea.png')
+        self.elements.get_eliminar_tarea_button().click()
+        self.page.wait_for_timeout(500)
+        logger.info("Tarea eliminada")
+
+    def eliminar_tarea_seccion(self):
+        hover_selector = "li.task_list_item"
+        self.page.hover(hover_selector)
+        self.elements.get_abrir_menu_tarea_seccion().is_visible()
+        self.elements.get_abrir_menu_tarea_seccion().click()
+        self.elements.get_eliminar_tarea().click()
+        self.elements.get_msj_alerta_eliminar_tarea()
+        self.page.screenshot(path='utils/img/eliminar_tarea.png')
+        self.elements.get_eliminar_tarea_button().click()
+        self.page.wait_for_timeout(500)
+        logger.info("Tarea eliminada")
+
+    def eliminar2(self):
         # Obtener la URL actual
         current_url = self.page.url
+        
         # Determinar el selector según la URL obtenida
         if current_url == "https://app.todoist.com/app/inbox":
             hover_selector = ".board_task"
@@ -148,22 +185,29 @@ class TaskPage:
             logger.warning("No se encontró una URL válida para eliminar el registro.")
             return  # Salir si no es una URL válida
 
+        logger.info(f'url {current_url}')
         # para eliminar tarea enviar el hover que es diferente
         self._eliminar_tarea(hover_selector)
     
     def _eliminar_tarea(self, hover_selector):
-        #Método auxiliar para eliminar la tarea haciendo hover sobre el elemento
-        self.page.hover(hover_selector)
-        if self.elements.get_abrir_menu_tarea().is_visible():
-            self.elements.get_abrir_menu_tarea().click()
+        #Método auxiliar para eliminar la tarea haciendo hover sobre el 
+        logger.info(f'Intentando hacer hover en {hover_selector}')
+        try: 
+            self.page.hover(hover_selector)
+            self.elements.get_abrir_menu_tarea().is_visible()
+           
+            menu_selector='button[aria-label="Más acciones"]'
+            combined_selector = f"{hover_selector} {menu_selector}"
+            logger.info(f"{combined_selector}")
+            self.page.locator(combined_selector).click()
             self.elements.get_eliminar_tarea().click()
             self.elements.get_msj_alerta_eliminar_tarea()
             self.page.screenshot(path='utils/img/eliminar_tarea.png')
             self.elements.get_eliminar_tarea_button().click()
             self.page.wait_for_timeout(500)
             logger.info("Tarea eliminada")
-        else:
-            logger.warning("No se pudo abrir el menú de la tarea.")
+        except Exception as e:
+            logger.warning(f"No se pudo abrir el menú de la tarea: {str(e)}")
 
     def agregar_subtarea(self, nivel):#revisando este metodo
         logger.info("agregar sub tarea")
@@ -229,26 +273,27 @@ class TaskPage:
 
             except:
                 logger.error(f"Error: la subtarea {nivel} no se creó correctamente")
+
         self.elements.get_cerrar_tarea().click()
                 
     
-    def mover_subtarea_a_seccion(self):
-        logger.info("mover subtarea nivel 2 a seccion En proceso")
+    def mover_subtarea_a_inbox(self):
+        logger.info("mover subtarea nivel 2 a inbox")
         self.elements.get_select_tarea().click()
         self.page.hover("li.task_list_item.task_list_item--project_hidden")
         self.elements.get_abrir_menu_sub_tarea().click()
         self.elements.get_mover_tarea().click()
-        self.elements.get_selec_seccion_inbox().click()
+        self.elements.get_selec_inbox().click()
         self.elements.get_msj_alerta_mover_tarea()
         self.page.screenshot(path='utils/img/mover_subtarea.png')
         self.page.wait_for_timeout(1000)
-        logger.info("la subtarea se movio a seccion como tarea")
+        logger.info("la subtarea se movio a inbox como tarea")
         self.elements.get_cerrar_tarea().click()
         self.eliminar()
         # self.elements.get_select_proyecto_1().click()
         self.page.goto('https://app.todoist.com/app/inbox')
         self.page.wait_for_timeout(500)
-        self.page.screenshot(path='utils/img/subtarea_se_movio_sec.png')
+        self.page.screenshot(path='utils/img/subtarea_se_movio.png')
         # self.eliminar()
     
     
