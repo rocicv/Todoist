@@ -43,8 +43,8 @@ def setup_browser():
 def test_añadir_un_comentario_proyecto(setup_browser):
     driver = setup_browser
     proyect_page = ProyectPage(driver.page)
-    proyect_page.agregar_proyecto(titulo_proyecto)
     coment_page = CommentPage(driver.page)
+    proyect_page.agregar_proyecto(titulo_proyecto)
     coment_page.agregar_coment_a_proy(comentario)
     coment_page.eliminar_comentario_proyecto()
     proyect_page.eliminar()
@@ -61,18 +61,8 @@ def test_añadir_un_comentario_tarea(setup_browser):
     task_page.eliminar()
 
 
-# C-003: Eliminar un comentario de una tarea
-def test_eliminar_comentario_de_tarea(setup_browser):
-    driver = setup_browser
-    task_page = TaskPage(driver.page)
-    coment_page = CommentPage(driver.page)
-    task_page.agregar_tarea_bandeja(nombre, desc)
-    coment_page.agregar_coment_a_tarea(comentario)
-    coment_page.eliminar_comentario()
-    task_page.eliminar()
 
-
-# C-004: Actualizar un comentario
+# C-003: Actualizar un comentario
 def test_actualizar_comentario(setup_browser):
     driver = setup_browser
     coment_page = CommentPage(driver.page)
@@ -84,7 +74,7 @@ def test_actualizar_comentario(setup_browser):
     task_page.eliminar()
 
 
-# C-005: Añadir un comentario a una sub tarea
+# C-004: Añadir un comentario a una sub tarea
 def test_comentario_subtarea(setup_browser):
     driver = setup_browser
     coment_page = CommentPage(driver.page)
@@ -95,9 +85,9 @@ def test_comentario_subtarea(setup_browser):
     coment_page.eliminar_comentario()
     task_page.eliminar()
 
-@pytest.mark.webtest
 
-# C-006: Notificar comentario desde proyecto a un correo 
+
+# C-005: Notificar comentario desde proyecto a un correo 
 def test_agregar_coment_proyecto_compartido(setup_browser):
     driver = setup_browser
     coment_page = CommentPage(driver.page)
@@ -106,9 +96,10 @@ def test_agregar_coment_proyecto_compartido(setup_browser):
     proyect_page.compartir_proyecto(correo_generado)
     coment_page.notificar_coment_proy(comentario)
     coment_page.eliminar_comentario_proyecto()
-    proyect_page.eliminar()
+    proyect_page.eliminar() #revisar esto
 
-# C-007: Notificar comentario de tarea a correo
+@pytest.mark.webtest
+# C-006: Notificar comentario de tarea a correo
 def test_agregar_coment_tarea_pcompartido(setup_browser):
     driver = setup_browser
     coment_page = CommentPage(driver.page)
@@ -122,3 +113,31 @@ def test_agregar_coment_tarea_pcompartido(setup_browser):
     task_page.eliminar()
     proyect_page.eliminar()
 
+
+# C-007: Reaccionar a un comentario
+def test_reaccionar_comentario(setup_browser):
+    driver = setup_browser
+    emoji='corazon'
+    coment_page = CommentPage(driver.page)
+    coment_page.reaccionar(emoji)
+    coment_page.eliminar_comentario()
+    coment_page.agregar_coment_a_tarea(comentario)
+
+@pytest.mark.xfail
+# C-008: Eliminación de emojis repetidos
+def test_se_elimina_reaccion_comentario(setup_browser):
+    driver = setup_browser
+    coment_page = CommentPage(driver.page)
+    emoji='corazon'
+    coment_page.reaccionar(emoji)
+    coment_page.reaccionar_segundavez()
+    # coment_page.eliminar_comentario()
+@pytest.mark.xfail
+# C-009: Desfase de emojis a un comentario
+def test_desfase_reaccion_comentario(setup_browser):
+    driver = setup_browser
+    task_page = TaskPage(driver.page)
+    coment_page = CommentPage(driver.page)
+    coment_page.desfasar()
+    coment_page.eliminar_comentario()
+    task_page.agregar_tarea_bandeja(nombre, desc)

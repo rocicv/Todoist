@@ -21,6 +21,9 @@ class CommentPageElements:
         
     def get_submit_button(self):
         return self.page.locator(self.selectors.SUBMIT_BUTTON)
+    
+    def get_submit_button_inbox(self):
+        return self.page.locator(self.selectors.INBOX_SUBMIT_BUTTON)
         
     def get_ver_comentarios(self):
         return self.page.locator(self.selectors.COMENTARIOS_PROYECTO)
@@ -69,12 +72,6 @@ class CommentPageElements:
     def get_agregar_reaccion_emoji(self):
         return self.page.locator(self.selectors.AGREGAR_REACCION)
     
-    def get_ver_emoji_reciente(self):
-        return self.selectors.EMOJIS_RECIENTES
-    
-    def get_selec_emoji(self):
-        return self.page.locator(self.selectors.EMOJI_VERIFICACION)
-    
     def get_ver_reacciones(self):
         return self.page.locator(self.selectors.REACCIONES_LIST)
     
@@ -95,3 +92,10 @@ class CommentPageElements:
     
     def get_cerrar_ventana(self):
         return self.page.locator(self.selectors.CERRAR_VENTANA)
+    
+    def get_campo_buscar_emoji(self):
+        return self.page.locator(self.selectors.CAMPO_BUSCAR)
+    def get_ver_emoji_corazon(self):
+        return self.page.locator(self.selectors.EMOJI_CORAZON)
+    def get_hacer_clic_fuera(self):
+        return self.page.locator(self.selectors.CLIC_FUERA)

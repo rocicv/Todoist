@@ -50,16 +50,16 @@ class CommentPage:
 
     def eliminar_comentario_proyecto(self):
         logger.info("abrir menu")
-        # self.elements.get_abrir_bandeja_comentario().click()
-        self.elements.get_abrir_menu_comentario().is_visible()
+        self.elements.hover_select_comentario()
         self.elements.get_abrir_menu_comentario().click()
-
         self.elements.get_eliminar_comentario().click()
         self.elements.get_ver_msj_alerta()
         self.page.screenshot(path='utils/img/alerta_eliminar_comentario.png')
         self.elements.get_aceptar_eliminar().click()
         logger.info("comentario eliminado")
         self.elements.get_cerrar_ventana().click()
+        self.page.wait_for_timeout(500)
+
 
     def actualizar_info(self, comentario):
         logger.info('actualizar comentario')
@@ -73,9 +73,8 @@ class CommentPage:
     
     
     def comment_subtarea(self, comentario):
-        logger.info("metodo reaccionar a subtarea")
+        logger.info("comentar subtarea")
         self.elements.get_abrir_tarea().click()
-        # self.elements.get_abrir_tarea().click()
         self.page.hover('.task_list_item.task_list_item--project_hidden')#subtarea
         self.elements.get_comentar_subtarea().click()
         self.elements.get_introducir_comentario().fill(comentario)
@@ -115,3 +114,65 @@ class CommentPage:
         self.elements.get_submit_button().click()
         logger.info("comentario realizado")
         self.elements.get_cancelar_agregar_comentario().click()
+
+    
+    def reaccionar(self, emoji:str):
+        self.elements.get_abrir_tarea().click()
+        self.elements.get_select_comentario().is_visible()
+        self.elements.get_agregar_reaccion_emoji().click()#abrir menu
+        logger.info("buscar emoji")
+        # self.page.wait_for_selector('input[aria-label="Buscar emoji"]', state='visible', timeout=3000)
+        self.page.wait_for_timeout(300)
+        self.elements.get_campo_buscar_emoji().type(emoji)
+        self.elements.get_campo_buscar_emoji().press('Enter')
+        logger.info("emojis encontrados")
+        # self.page.wait_for_timeout(500)
+        self.page.screenshot(path='utils/img/emojis.png')
+        logger.info("select emoji")
+        self.elements.get_ver_emoji_corazon().is_visible()
+        self.elements.get_ver_emoji_corazon().click()
+        self.page.wait_for_timeout(400)
+        self.page.screenshot(path='utils/img/reaccion_emoji.png')
+        logger.info("reacciono a un comentario con un emoji")
+    
+    def reaccionar_segundavez(self):
+        # self.elements.get_abrir_tarea().click()
+        self.elements.get_select_comentario().is_visible()
+        self.elements.get_agregar_reaccion_emoji().click()#abrir menu
+        self.page.wait_for_timeout(300)
+        logger.info("select emoji igual")
+        self.elements.get_ver_emoji_corazon().is_visible()
+        self.elements.get_ver_emoji_corazon().click()
+        self.page.wait_for_timeout(400)
+        self.page.screenshot(path='utils/img/reaccion_eliminado.png')
+        raise AssertionError(f"se elimino el emoji de reaccion de un comentario")
+    
+    def desfasar(self):
+        emoji='flor'
+        self.elements.get_abrir_tarea().click()
+        self.elements.get_select_comentario().is_visible()
+        self.elements.get_agregar_reaccion_emoji().click()#abrir menu
+        logger.info("buscar emoji")
+        # self.page.wait_for_selector('input[aria-label="Buscar emoji"]', state='visible', timeout=3000)
+        self.page.wait_for_timeout(300)
+        self.elements.get_campo_buscar_emoji().type(emoji)
+        self.elements.get_campo_buscar_emoji().press('Enter')
+        logger.info("emojis encontrados")
+        self.page.wait_for_timeout(500)
+        self.page.screenshot(path='utils/img/emojis_resultado.png')
+        logger.info("select emoji")
+        for i in range(1, 13):
+            try:
+                emoji_selector = f'[data-testid="emojiWrapper"] > div > div:nth-of-type({i})'
+                self.page.is_visible(emoji_selector)
+                self.page.click(emoji_selector)
+                logger.info(f"Clic realizado en: {emoji_selector}")
+                self.elements.get_agregar_reaccion_emoji().click()
+            except Exception as e:
+                logger.info(f"No se encontró el emoji en la posición {i}: {e}")
+                break  # Salir del bucle si no hay más emojis
+        
+        self.page.press('Body','Escape')
+        self.page.wait_for_timeout(400)
+        self.page.screenshot(path='utils/img/reaccion_emojis_desfase.png')
+        raise AssertionError(f"reacciono a un comentario con muchos emojis que desfasan dentro del div comentarios")
