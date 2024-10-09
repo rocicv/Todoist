@@ -69,11 +69,17 @@ class TareasPageElements:
     def get_abrir_menu_tarea(self):
         return self.page.locator(self.selectors.MENU_TAREA)
     
+    def get_abrir_menu_tarea_seccion(self):
+        return self.page.locator(self.selectors.MENU_TAREA_DENTRO_SECCION)
+    
     def get_abrir_menu_sub_tarea(self):
         return self.page.locator(self.selectors.MENU_SUB_TAREA)
     
     def get_mover_tarea(self):
         return self.page.locator(self.selectors.MOVER_TAREA_BUTTON)
+    
+    def get_selec_inbox(self):
+        return self.page.locator(self.selectors.INBOX)
     
     def get_selec_seccion_proy(self):
         return self.page.locator(self.selectors.SECCION_PROCESO_PROY)

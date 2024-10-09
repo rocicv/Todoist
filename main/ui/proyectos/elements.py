@@ -18,7 +18,7 @@ class ProyectosPageElements:
     def get_titulo_form(self):
         return self.page.locator(self.selectors.TITULO_FORMULARIO)
     
-    def get_name_input(self):
+    def get_campo_nombre_titulo(self):
         return self.page.locator(self.selectors.CAMPO_NOMBRE)
     
     def get_select_color(self):
@@ -150,11 +150,8 @@ class ProyectosPageElements:
     def get_clic_menu_proyecto_exportar(self):
         return self.page.locator(self.selectors.EXPORTAR_MENU)
     
-    def get_clic_submenu(self):
-        return self.page.locator(self.selectors.EXPORTAR_COMO)
-    
     def get_titulo_mjs_exportar(self):
-        return self.page.locator(self.selectors.EXPORTAR_COMO)
+        return self.page.locator(self.selectors.TITULO_MSJ_EXPORTAR_COMO)
     
     def get_clic_boton_exportar(self):
         return self.page.locator(self.selectors.EXPORTAR_BUTTON)
