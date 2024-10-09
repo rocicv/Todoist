@@ -20,6 +20,12 @@ playwright install
 ```bash
 pip install python-dotenv
 ```
+ Crear archivo .env en la raiz del proyecto con los datos:
+```bash
+TODOIST_EMAIL = ejemplo.com
+TODOIST_PASSWORD = password
+```
+ 
 5. Instalar librerias de reportes
 ```bash
 pip install pytest-html
@@ -30,10 +36,11 @@ pip freeze > requirements.txt
 ```
 ## Estructura del proyecto
 
-- `test/`: Contiene las pruebas automatizadas para Todoist.
+- `test/`: Contiene las pruebas automatizadas para Todoist por modulo.
 - `core/`: Contiene archivos esenciales del proyecto.
-- `main/`: Carpeta donde se encuentran los scripts principales, page object, selectors, etc.
-- `utils/`: Carpeta donde se encuentran las imagenes y reportes de las pruebas
+- `main/`: Carpeta donde se encuentran ordenados por modulo los scripts principales, page object model, selectors, variables generadas. 
+- `utils/`: Carpeta donde se encuentran las capturas de imagenes de las pruebas
+- `report/`: Carpeta donde se encuentran los reportes en archivos HTML
 
 
   
