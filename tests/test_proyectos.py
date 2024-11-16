@@ -34,7 +34,7 @@ def test_agregar_proyecto_simple(setup_browser):
     proyect_page.agregar_proyecto(titulo_proyecto)
     proyect_page.eliminar()
 
-
+@pytest.mark.webtest
 # P-002: Agregar proyecto por plantilla
 def test_agregar_proyecto_por_plantilla(setup_browser):
     driver = setup_browser
@@ -78,7 +78,7 @@ def test_actualizar_info_proyecto(setup_browser):
     proyect_page.actualizar_info()
     proyect_page.eliminar()
 
-@pytest.mark.webtest
+
 # P-007: Compartir proyecto por correo
 def test_compartir_proyecto(setup_browser):
     driver = setup_browser

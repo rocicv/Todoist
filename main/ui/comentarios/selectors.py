@@ -21,8 +21,6 @@ class ComentariosPageSelectors:
     SUBTAREA='.task_list_item.task_list_item--project_hidden'
     ICONO_COMENTAR_BUTTON='.task_list_item.task_list_item--project_hidden  button[aria-label="Comentar"]'
     AGREGAR_REACCION='.emojiPickerWrapper button[aria-label="Añade una reacción"]'
-    # EMOJIS_RECIENTES='div[data-testid="Usadas recientemente"]'
-    # EMOJI_VERIFICACION='div[title="botón de marca de verificación"]'
     REACCIONES_LIST='.comments_actions_line.reactions_line .reaction'
     MENU_EMOJIS='div[aria-label="Selector de emoji"]'
     CAMPO_NOTIFICAR='div[data-testid="collaboratorComboBox"] input'
