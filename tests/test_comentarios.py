@@ -49,7 +49,7 @@ def test_añadir_un_comentario_proyecto(setup_browser):
     coment_page.eliminar_comentario_proyecto()
     proyect_page.eliminar()
 
-
+@pytest.mark.webtest
 # C-002: Añadir un comentario a una tarea de bandeja de entrada
 def test_añadir_un_comentario_tarea(setup_browser):
     driver = setup_browser
@@ -96,9 +96,9 @@ def test_agregar_coment_proyecto_compartido(setup_browser):
     proyect_page.compartir_proyecto(correo_generado)
     coment_page.notificar_coment_proy(comentario)
     coment_page.eliminar_comentario_proyecto()
-    proyect_page.eliminar() #revisar esto
+    proyect_page.eliminar() 
 
-@pytest.mark.webtest
+
 # C-006: Notificar comentario de tarea a correo
 def test_agregar_coment_tarea_pcompartido(setup_browser):
     driver = setup_browser
